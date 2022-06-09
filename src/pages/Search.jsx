@@ -13,7 +13,6 @@ const Search = () => {
 
     const recipes = await response.json();
     setSearchedRecipe(recipes.hits);
-    console.log(recipes.hits);
   };
 
   useEffect(() => {
@@ -31,7 +30,15 @@ const Search = () => {
               key={index}
               className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md"
             >
-              <Link to="/">
+              <Link
+                to="/recipe"
+                onClick={() => {
+                  sessionStorage.setItem(
+                    "currentRecipe",
+                    JSON.stringify(recipe.recipe)
+                  );
+                }}
+              >
                 <img
                   className="rounded-t-lg object-cover w-full"
                   src={recipe.recipe.image}
@@ -39,7 +46,15 @@ const Search = () => {
                 />
               </Link>
               <div className="p-5">
-                <Link to="/">
+                <Link
+                  to="/recipe"
+                  onClick={() => {
+                    sessionStorage.setItem(
+                      "currentRecipe",
+                      JSON.stringify(recipe.recipe)
+                    );
+                  }}
+                >
                   <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 line-clamp-1">
                     {recipe.recipe.label}
                   </h5>
@@ -52,7 +67,13 @@ const Search = () => {
                   </span>
                 </p>
                 <Link
-                  to="/"
+                  to="/recipe"
+                  onClick={() => {
+                    sessionStorage.setItem(
+                      "currentRecipe",
+                      JSON.stringify(recipe.recipe)
+                    );
+                  }}
                   className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
                 >
                   Read more

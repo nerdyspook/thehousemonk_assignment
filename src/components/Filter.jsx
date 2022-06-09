@@ -28,13 +28,6 @@ const Filter = ({ setSearchedRecipe, term }) => {
 
     const recipes = await response.json();
     setSearchedRecipe(recipes.hits);
-    console.log(
-      `${term}&ingr=0-${Math.round(ingredients || 0)}${
-        lowCarb ? "&diet=low-carb" : ""
-      }${lowFat ? "&diet=low-fat" : ""}${highFiber ? "&diet=high-fiber" : ""}${
-        highProtein ? "&diet=high-protein" : ""
-      }&calories=${from ? Math.round(from) : 0}-${to ? Math.round(to) : 0}`
-    );
   };
 
   useEffect(() => {
