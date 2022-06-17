@@ -18,7 +18,7 @@ const Filter = ({ setSearchedRecipe, term }) => {
       `https://api.edamam.com/api/recipes/v2?type=public&q=${term}&app_id=${
         process.env.REACT_APP_API_ID
       }&app_key=${process.env.REACT_APP_API_KEY}&ingr=0-${Math.round(
-        ingredients || 0
+        ingredients || 100
       )}${lowCarb ? "&diet=low-carb" : ""}${lowFat ? "&diet=low-fat" : ""}${
         highFiber ? "&diet=high-fiber" : ""
       }${highProtein ? "&diet=high-protein" : ""}&calories=${
